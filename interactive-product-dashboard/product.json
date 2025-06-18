@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Strawberry",
+        "price": 10.00,
+        "image": "/images/Strawberry.png"
+    },
+   
+    {
+        "id": 2,
+        "name": "Onion",
+        "price": 2.00,
+        "image": "/images/onion.png"
+    },
+   
+    {
+        "id": 3,
+        "name": "Strawberry",
+        "price": 50.00,
+        "image": "/images/tomatoes.png"
+    }
+
+
+]
