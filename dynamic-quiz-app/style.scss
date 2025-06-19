@@ -15,7 +15,6 @@ $spacing-unit: 1rem;
     border-radius: 0.25rem;
     font-weight: bold;
     transition: transform 02s ease;
-
     &hover {
         transform: translateY(-2px);
         opacity: 0.9;
@@ -112,9 +111,71 @@ a {
                 @include button-style($primary-color, white);
             }
         }
+    }
 
+    .results{
+        display: none;
+        background-color: #fff;
+        padding: $spacing-unit;
+        border: 8px;
+        text-align: center;
+        animation: fadeln 0.5s ease;
 
+        h2{
+            color: $primary-color;
+        }
 
+        .scroe{
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem;
+        }
+    }
 
+    footer{
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        color: #666;
+    }
+}
+
+//animation
+@keyframes fadeln{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes shake{
+    0%{
+        transform: translateX(0px);
+    }
+    25%{
+        transform: translateX(-5px);
+    }
+    50%{
+        transform: translateX(5px);
+    }
+    75%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+@media(max-width:768px){
+    .quize-container main {
+        padding: 0.75rem;
+    }
+
+    .navigation-buttons{
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
     }
 }
