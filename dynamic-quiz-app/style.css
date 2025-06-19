@@ -1,1 +1,95 @@
-/*# sourceMappingURL=style.css.map */
+body {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.quize-container {
+  display: flex;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  padding: 1rem;
+  gap: 1rem;
+}
+.quize-container header {
+  text-align: center;
+  padding: 1rem;
+  background-color: #007bff;
+  color: #fff;
+}
+.quize-container header h1 {
+  margin: 0;
+}
+.quize-container main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rbga(0, 0, 0, 0.1);
+}
+.quize-container main .question-area {
+  margin-bottom: 1rem;
+}
+.quize-container main .question-area .question {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.quize-container main .question-area .options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.quize-container main .question-area .options button {
+  background-color: #e9ecef;
+  color: #212529;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  transition: transform 2s ease;
+  text-align: left;
+}
+.quize-container main .question-area .options buttonhover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.quize-container main .question-area .options button.selected {
+  border: 2px solid #007bff;
+}
+.quize-container main .question-area .options button.correct {
+  background-color: #28a745;
+  color: white;
+  animation: fadeln 0.5s ease-in-out;
+}
+.quize-container main .question-area .options button.incorrect {
+  background-color: #dc3545;
+  color: white;
+  animation: 0.4s ease-in-out;
+}
+.quize-container main .navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.quize-container main .navigation-buttons .btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  transition: transform 2s ease;
+}
+.quize-container main .navigation-buttons .btnhover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}/*# sourceMappingURL=style.css.map */

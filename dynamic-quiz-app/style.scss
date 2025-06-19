@@ -6,8 +6,8 @@ $text-color: #212529;
 $font-base: 16px;
 $spacing-unit: 1rem;
 
-
-@mixin button-style($bg, $color){
+//mixin
+@mixin button-style($bg, $color) {
     background-color: $bg;
     color: $color;
     padding: 0.5rem 1.25rem;
@@ -15,8 +15,106 @@ $spacing-unit: 1rem;
     border-radius: 0.25rem;
     font-weight: bold;
     transition: transform 02s ease;
-    &hover{
+
+    &hover {
         transform: translateY(-2px);
         opacity: 0.9;
+    }
+}
+
+//body styles
+body {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: $font-base;
+    background-color: $bg-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.quize-container {
+    display: flex;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    padding: $spacing-unit;
+    gap: 1rem;
+
+
+    header {
+        text-align: center;
+        padding: 1rem;
+        background-color: $primary-color;
+        color: #fff;
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #fff;
+        padding: $spacing-unit;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rbga(0, 0, 0, 0.1);
+
+
+        .question-area {
+            margin-bottom: 1rem;
+
+            .question {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .options {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                button {
+                    @include button-style(#e9ecef, $text-color );
+                    text-align: left;
+
+                    &.selected {
+                        border: 2px solid $primary-color;
+                    }
+
+                    &.correct {
+                        background-color: $correct-color;
+                        color: white;
+                        animation: fadeln 0.5s ease-in-out;
+                    }
+
+                    &.incorrect {
+                        background-color: $incorrect-color;
+                        color: white;
+                        animation: 0.4s ease-in-out;
+                    }
+
+
+                }
+            }
+        }
+
+        .navigation-buttons{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+
+            .btn{
+                @include button-style($primary-color, white);
+            }
+        }
+
+
+
+
     }
 }
