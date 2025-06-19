@@ -15,6 +15,18 @@ const quizData = [{
 }
 ];
 
+class Question{
+    constructor(Question,options,correct){
+        this.question=this.question;
+        this.options=options;
+        this.correct=correct;
+    }
+
+    isCorrectAnswer(answer){
+        return this.correct===answer;
+    }
+}
+
 class Quiz {
     constructor(question) {
         this.question = question.map(
@@ -61,15 +73,15 @@ class Quiz {
 }
 
 //DOM 
-const questionText = ducument.getElementById("question-text");
-const optionsList = ducument.getElementById("options");
-const progressBar = ducument.getElementById("progressBar");
-const prevBtn = ducument.getElementById("prev-btn");
-const nextBtn = ducument.getElementById("next-btn");
-const submitBtn = ducument.getElementById("submit-btn");
-const resultSection = ducument.getElementById("result-section");
-const scoreText = ducument.getElementById("score-text");
-const summary = ducument.getElementById("summary");
+const questionText = document.getElementById("question-text");
+const optionsList = document.getElementById("options");
+const progressBar = document.getElementById("progressBar");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const submitBtn = document.getElementById("submit-btn");
+const resultSection = document.getElementById("result-section");
+const scoreText = document.getElementById("score-text");
+const summary = document.getElementById("summary");
 
 const quiz = new Quiz(quizData);
 
@@ -143,5 +155,39 @@ function displayResults(){
 
     summary,innerHTML=quiz.questions.map((q,index)=>{
         const userAnswer=quiz.userAnswer[index];
+        const isCorrect=userAnswer===q.correct;
+        return`
+        <div class="mb-2> 
+        <strong>Q${index+1}:</strong>${q.question} <br/>
+        <span style="color:${isCorrect?'green':'red'}">
+        Your answer:$(userAnswer||"No answer)(${isCorrect?'Correct':'Incorrect'})
+        </span>
+        </div>
+        `;
     })
+    .join("");
+
+    const name = promp("Enter your name;");
+    if(validateName(name)){
+        const date = new Date().toLocaleString();
+        const record = {
+            name,
+            score:quiz.questions.length,
+            date
+        };
+        saveResult(record);
+    } else{
+      alert("Invalid name.Must be alphanumeric and 3-15 characters.");
+    }
 }
+
+function validateName(name){
+    let results = 
+    JSON.parse(localStorage.getItem("quizResults"))||[];
+    results.push(record);
+    localStorage.setItem("quizResults", JSON.stringify(results));
+}
+
+//renderQuestion();
+
+document.addEventListener("DOMContentLoaded", renderQuestion);
